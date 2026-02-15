@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #020617;
+  color: white;
+}
+
+/* ===== HERO HEADER ===== */
+.hero-header {
+  position: relative;
+  height: 100vh;
+  background: url("bg2.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Overlay */
+.hero-header .overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(218, 184, 74, 0.18), transparent 60%),
+    rgba(0,0,0,0.85);
+}
+
+/* Floating light */
+.hero-header::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(212,175,55,0.25), transparent 70%);
+  top: -120px;
+  left: -120px;
+  animation: floatLight 8s infinite alternate ease-in-out;
+}
+
+/* Content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 20px;
+}
+
+/* Logo */
+.hero-logo {
+  width: 120px;
+  margin-bottom: 25px;
+  border-radius: 40%;
+  filter: drop-shadow(0 0 25px rgba(212,175,55,0.6));
+}
+
+/* Text */
+.hero-content h1 {
+  font-size: 52px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: #e5e5e5;
+  margin-bottom: 40px;
+}
+
+/* Trust icons */
+.trust-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 45px;
+}
+
+.trust-item {
+  background: rgba(0,0,0,0.6);
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  border: 1px solid rgba(212,175,55,0.3);
+  box-shadow: 0 0 15px rgba(212,175,55,0.15);
+}
+
+/* Button */
+.hero-btn {
+  background: linear-gradient(135deg, #d4af37, #ffcf66);
+  color: #000;
+  border: none;
+  padding: 16px 45px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 0 35px rgba(212,175,55,0.5);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 15px rgba(212,175,55,0.3); }
+  50% { box-shadow: 0 0 45px rgba(212,175,55,0.8); }
+  100% { box-shadow: 0 0 15px rgba(212,175,55,0.3); }
+}
+
+.glow {
+  animation: glowPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade {
+  animation: fadeSlideUp 1.2s ease forwards;
+}
+
+.lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+
+@keyframes floatLight {
+  from { transform: translate(0,0); }
+  to { transform: translate(220px,160px); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .hero-logo {
+    width: 90px;
+  }
+}

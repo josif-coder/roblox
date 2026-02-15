@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reward Processing</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at top, #171726, #0d0d14);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: white;
+  flex-direction: column;
+}
+
+/* Progress Section */
+.progress-section { text-align: center; width: 400px; }
+.progress-bar { width: 100%; height: 14px; background: #222; border-radius: 20px; overflow: hidden; margin-top: 20px; }
+.progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #ff003c, #ff7300); transition: width 0.1s linear; }
+
+/* Status messages */
+.status-messages p { font-size: 14px; opacity: 0; margin: 8px 0; transition: 0.5s ease; }
+.status-messages p.show { opacity: 1; }
+
+/* Reward Section */
+.reward-section { display: none; text-align: center; margin-top: 30px; }
+.reward-card { background: linear-gradient(145deg, #14141c, #1c1c28); padding: 30px; border-radius: 20px; width: 300px; box-shadow: 0 20px 50px rgba(255,0,60,0.2); }
+.reward-card img { width: 100%; border-radius: 12px; margin-bottom: 15px; }
+.reward-card h3 { margin: 10px 0; }
+.reward-card p { opacity: 0.7; margin-bottom: 20px; }
+.reward-card button { background: linear-gradient(90deg, #00ff99, #00cc66); border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.reward-card button:hover { transform: scale(1.08); }
+</style>
+</head>
+<body>
+
+<!-- Progress Section -->
+<div class="progress-section" id="progressSection">
+  <h2>Preparing Your Reward...</h2>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+  <div class="status-messages" id="statusMessages"></div>
+</div>
+
+<!-- Reward Section -->
+<div class="reward-section" id="rewardSection">
+  <div class="reward-card">
+    <img id="rewardImg" src="" alt="">
+    <h3 id="rewardTitle"></h3>
+    <p>Your selected reward is ready.</p>
+    <button onclick="goNext()">Continue</button>
+  </div>
+</div>
+
+<script>
+const progressFill = document.getElementById("progressFill");
+const statusMessages = document.getElementById("statusMessages");
+const progressSection = document.getElementById("progressSection");
+const rewardSection = document.getElementById("rewardSection");
+const rewardImg = document.getElementById("rewardImg");
+const rewardTitle = document.getElementById("rewardTitle");
+
+let progress = 0;
+let messageIndex = 0;
+
+// Status messages
+const messages = [
+  "Checking reward availability...",
+  "Connecting to partner network...",
+  "Validating request...",
+  "Finalizing secure access..."
+];
+
+// Rewards
+const rewards = {
+  millionaire: { title: "Millionaire Style Emote", img: "https://tr.rbxcdn.com/180DAY-79e22f4e9e5487087a16face4460c469/420/420/EmoteAnimation/Webp/noFilter" },
+  wealthy: { title: "Wealthy Emote", img: "https://tr.rbxcdn.com/180DAY-a0115e170468923f8f2ea7c0946f91de/420/420/EmoteAnimation/Webp/noFilter" },
+  simple: { title: "Simple Cute Idle", img: "https://tr.rbxcdn.com/180DAY-c54e5774f8966ad26bbad673b0d184bf/420/420/EmoteAnimation/Webp/noFilter" },
+  king: { title: "King Style Animation", img: "https://tr.rbxcdn.com/180DAY-9544cd3622027475d239d29e58323f90/420/420/EmoteAnimation/Webp/noFilter" }
+};
+
+// Get reward from URL
+const params = new URLSearchParams(window.location.search);
+const selectedReward = params.get("reward");
+
+const interval = setInterval(() => {
+  progress++;
+  progressFill.style.width = progress + "%";
+
+  // Show messages at 25%,50%,75%,100%
+  if (progress % 25 === 0 && messageIndex < messages.length) {
+    const p = document.createElement("p");
+    p.textContent = messages[messageIndex];
+    statusMessages.appendChild(p);
+    setTimeout(() => p.classList.add("show"), 100);
+    messageIndex++;
+  }
+
+  // When progress reaches 100%
+  if (progress >= 100) {
+    clearInterval(interval);
+    progressSection.style.display = "none";
+    rewardSection.style.display = "block";
+
+    // Set reward info
+    if (rewards[selectedReward]) {
+      rewardTitle.textContent = rewards[selectedReward].title;
+      rewardImg.src = rewards[selectedReward].img;
+    } else {
+      // fallback reward
+      rewardTitle.textContent = "Default Reward";
+      rewardImg.src = "img/millionaire.png";
+    }
+  }
+}, 100);
+
+// Continue button
+function goNext() {
+  window.location.href = "username.html"; // replace with your link
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<section class="rewards-section">
+  <h2 class="section-title">🔥 Featured Rewards</h2>
+
+  <div class="rewards-grid">
+
+    <!-- Card 1 -->
+    <div class="reward-card">
+      <img src="https://tr.rbxcdn.com/180DAY-79e22f4e9e5487087a16face4460c469/420/420/EmoteAnimation/Webp/noFilter" alt="Millionaire Style Emote">
+      <div class="reward-info">
+        <h3>Millionaire Style</h3>
+        <p>Inspired premium emote animation</p>
+        <div class="reward-bottom">
+          <span class="price">Premium Tier</span>
+          <a href="processing.html?reward=millionaire">Unlock</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="reward-card">
+      <img src="https://tr.rbxcdn.com/180DAY-a0115e170468923f8f2ea7c0946f91de/420/420/EmoteAnimation/Webp/noFilter" alt="Wealthy Emote">
+      <div class="reward-info">
+        <h3>Wealthy</h3>
+        <p>Exclusive luxury idle animation</p>
+        <div class="reward-bottom">
+          <span class="price">500K Tier</span>
+          <a href="processing.html?reward=wealthy">Unlock</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="reward-card limited">
+      <span class="badge">LIMITED</span>
+      <img src="https://tr.rbxcdn.com/180DAY-c54e5774f8966ad26bbad673b0d184bf/420/420/EmoteAnimation/Webp/noFilter" alt="Simple Cute Idle">
+      <div class="reward-info">
+        <h3>Simple Cute Idle</h3>
+        <p>Minimal idle animation pack</p>
+        <div class="reward-bottom">
+          <span class="price">10K Tier</span>
+          <a href="processing.html?reward=simple">Unlock</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="reward-card">
+      <img src="https://tr.rbxcdn.com/180DAY-9544cd3622027475d239d29e58323f90/420/420/EmoteAnimation/Webp/noFilter" alt="King Style">
+      <div class="reward-info">
+        <h3>King Style</h3>
+        <p>Royal inspired dance animation</p>
+        <div class="reward-bottom">
+          <span class="price">10K Tier</span>
+          <a href="processing.html?reward=king">Unlock</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+    .rewards-section {
+  padding: 80px 8%;
+  background: radial-gradient(circle at top, #151520, #0d0d14);
+  color: white;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+.rewards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.reward-card {
+  background: linear-gradient(145deg, #14141c, #1c1c28);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.4s ease;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.reward-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(255, 0, 60, 0.25);
+}
+
+.reward-card img {
+  width: 100%;
+  display: block;
+  transition: 0.4s;
+}
+
+.reward-card:hover img {
+  transform: scale(1.05);
+}
+
+.reward-info {
+  padding: 20px;
+}
+
+.reward-info h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.reward-info p {
+  font-size: 14px;
+  opacity: 0.6;
+  margin-bottom: 15px;
+}
+
+.reward-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: bold;
+  color: #00ff99;
+}
+
+.reward-card a {
+  background: linear-gradient(90deg, #ff003c, #ff7300);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.reward-card a:hover {
+  transform: scale(1.08);
+}
+
+/* LIMITED badge */
+.badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(90deg, #00ff99, #00cc66);
+  color: black;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+</style>

